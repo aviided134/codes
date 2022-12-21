@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 from matplotlib import style
 # this is the first change in  the code
-
+# this is second change in the code
 '''
 __init__ method is called everytime whenever a class is called or an object is created from a cass.
 in this class, init method initializes two attributes: visualization and colors
