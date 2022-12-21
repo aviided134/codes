@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt 
 from matplotlib import style
-
+# this is the first change in  the code
 
 '''
 __init__ method is called everytime whenever a class is called or an object is created from a cass.
