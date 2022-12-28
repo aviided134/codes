@@ -1,4 +1,4 @@
-import numpy as np 
+'''import numpy as np 
 
 data_dict = {-1 : np.array([[1,7],
 				    	   [2,8],
@@ -28,3 +28,7 @@ for step in step_sizes:
 
 		#print(b)
 
+'''
+data = {-1: [2,3], 1: [4,5]} 
+a = [[x**2  for x in data[i]] for i in data]
+print(a)
