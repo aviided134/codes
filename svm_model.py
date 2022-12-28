@@ -68,12 +68,25 @@ class Support_Vector_Machine:
 							for xi in self.data[i]:
 								yi = i 
 								if not yi*(np.dot(w_t, xi) + b) >= 1:
-									found_option = False
+									found_option = False				# if false, no reason to check from that class
 
 								if found_option:
+									opt_dict[np.linalg.norm(w_t)] = [w_t, b]    # ||w||: [w,b] 
 									
 
+				if w[0] < 0:
+					optimized = True
+					print('Optimized a step')
+				else:
+					w = w- step 
 
+
+		norms = sorted([n for n in opt_dict])  # sorted according to the weight magnitude
+		opt_choice = opt_dict[norms[0]]		   # optimum choice is the value([w,b]) of the least magnitude
+
+		self.w = opt_choice[0]
+		self.b = opt_choice[1]
+		latest_optimum = opt_choice[0][0] + step * 2
 
 
 
@@ -81,8 +94,26 @@ class Support_Vector_Machine:
 	def predict(self, features):
 		# sign wx + b
 		classification = np.sign(np.dot(np.array(features), self.w) + self.b)
+		if classification != 0 and self.visualization:
+			self.ax.scatter(features[0], features[1], s = 200, marker = *, c = self.colors[classification])  # s for size, c for color(used for classification) 
+		
 		return classification
 		pass
+
+	def visualize(self):
+		[[self.ax.scatter(x[0], x[1], s = 200, c = self.colors[i]) for x in data_dict[i]] for i in data_dict] #  it will scatter the data according to the class. list comprehensin technique
+
+
+		#the definition of hyperplane is x.w+b
+		def hyperplane(x,w,b):
+
+			#v = x*w+b
+			#positive support vector(psv) = 1
+			#nsv = 1
+			#decision boundary = 0
+
+			return(-w[0]*x-b+v) / w[1]
+
 
 data_dict = {-1 : np.array([[1,7],
 				    	   [2,8],
