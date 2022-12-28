@@ -4,6 +4,14 @@ x = [[0.1,-0.2,0.3,0.4],
 	 [0.1,0.4,0.5,0.6],
 	 [-0.7,0.5,0.2,-0.1]]
 
+opt_dict = {}
+a = [2,3]
+y = [4,5,]
+opt_dict[np.linalg.norm(a)] = [y]
+
+print(opt_dict)
+'''
+
 class layer_dense:
 	def __init__(self, n_input, n_neuron):
 		self.weight = 0.1*np.random.rand(n_input, n_neuron)
@@ -22,3 +30,4 @@ layer2.forward(layer1.output)
 
 print(layer2.output)
 
+'''
